@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+
+<h5>商务组件</h5>
+
+<table class="table table-striped">
+  <thead class="thead-dark">
+    <tr>
+      <th scope="col">序</th>
+      <th scope="col">编号 名称</th>
+      <th scope="col"> </th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @businessunits.each do |businessunit| %>
+      <tr class="<%= cycle('list_line_odd', 'list_line_even') %>"%>
+    <td class: 'list_image'>
+      <%= businessunit.id %>
+    </td>
+
+        <td class="list_description">
+          <dl>
+                  <dt><%= businessunit.code %></dt>
+                  <dd><%= businessunit.name %></dd>
+          </dl>
+        </td>
+        <td class="list_actions">
+              <%= link_to 'Show', businessunit %><br/>
+              <%= link_to 'Edit', edit_businessunit_path(businessunit) %><br/>
+              <%= link_to 'Destroy', businessunit, method: :delete,
+                          data: { confirm: 'Are you sure?' } %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Businessunit', new_businessunit_path %>

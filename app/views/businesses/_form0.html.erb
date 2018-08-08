@@ -1,0 +1,155 @@
+<%= form_for(order) do |f| %>
+  <% if order.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(order.errors.count, "error") %>
+      prohibited this order from being saved:</h2>
+
+      <ul>
+      <% order.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :name %>
+    <%= f.text_field :name, size: 40 %>
+  </div>
+
+  <div class="field">
+    <%= f.label :address %>
+    <%= f.text_area :address, rows: 3, cols: 40 %>
+  </div>
+
+  <div class="field">
+    <%= f.label :email %>
+    <%= f.email_field :email, size: 40 %>
+  </div>
+
+  <div class="field">
+    <%= f.label :pay_type %>
+    <%= f.select :pay_type, Order.pay_types.keys,
+                  prompt: 'Select a payment method' %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit 'Place Order' %>
+  </div>
+<% end %>
+
+
+<!-- Swift Lessons -->
+<section class="section section-swift-lessons" data-analytics-section-engagement="name:swift-lessons">
+<div class="section-content">
+<h2 class="section-headline typography-section-headline">各种课程，让孩子们通过 Swift <br class="hide-for-small"/>开始思考、解决问题、发挥创意。</h2>
+<p class="section-intro">我们开创了一系列标准化教材来帮助你教授编程，包括课堂活动，基于 app 的谜题和讨论话题。下面我们就来快速预览一下在 iPad 上讲授 Swift 的课程。</p>
+<div class="subsection-content swift-lessons-tabs gallery-container" data-component-list="TabGallery">
+<div
+  data-ac-gallery-tabnav="swift-lessons-gallery"
+  class="tabs-nav tabnav column large-12"
+>
+  <ul class="tabnav-items" role="tablist">
+    <li class="tabnav-item" role="presentation">
+      <a
+        href="#swift-gallery-creating-sequences"
+        id="swift-gallery-creating-sequences-trigger"
+        data-ac-gallery-trigger="swift-gallery-creating-sequences"
+        class="tabnav-link current"
+      >创建序列</a>
+    </li><!--
+ --><li class="tabnav-item" role="presentation">
+      <a
+        href="#swift-gallery-think-like-computer"
+        id="swift-gallery-think-like-computer-trigger"
+        data-ac-gallery-trigger="swift-gallery-think-like-computer"
+        class="tabnav-link"
+      >像电脑一样思考</a>
+    </li><!--
+ --><li class="tabnav-item" role="presentation">
+      <a
+      href="#swift-gallery-algorithms"
+      id="swift-gallery-algorithms-trigger"
+      data-ac-gallery-trigger="swift-gallery-algorithms"
+      class="tabnav-link"
+      >算法</a>
+    </li><!--
+ --><li class="tabnav-item" role="presentation">
+      <a
+        href="#swift-gallery-logical-thinking"
+        id="swift-gallery-logical-thinking-trigger"
+        data-ac-gallery-trigger="swift-gallery-logical-thinking"
+        class="tabnav-link"
+      >逻辑思维</a>
+    </li><!--
+ --><li class="tabnav-item" role="presentation">
+      <a
+        href="#swift-gallery-creating-worlds"
+        id="swift-gallery-creating-worlds-trigger"
+        data-ac-gallery-trigger="swift-gallery-creating-worlds"
+        class="tabnav-link"
+      >创造新的世界</a>
+    </li>
+  </ul>
+</div>
+<div
+  id="swift-lessons-gallery"
+  data-ac-gallery-slide
+
+  class="gallery-slides column large-10 large-offset-1 medium-12 medium-offset-0"
+>
+  <div id="swift-gallery-creating-sequences" data-ac-gallery-item class="column large-12 gallery-slide">
+    <figure class="gallery-image column large-4 small-12" aria-hidden="true">
+      <figcaption class="visuallyhidden">创建序列</figcaption>
+    </figure>
+    <div class="gallery-text column large-7 small-12">
+      <p>小学生们自己编排疯狂的舞步，然后教其他学生如何表演这些舞步。在这个过程中，他们将了解到正确编排指令顺序的重要意义，然后在 codeSpark 和 Tynker 这类可视化应用中练习编程。</p>
+    </div>
+  </div>
+  <div id="swift-gallery-think-like-computer" data-ac-gallery-item class="column large-12 gallery-slide">
+    <figure class="gallery-image column large-4 small-12" aria-hidden="true">
+      <figcaption class="visuallyhidden">像电脑一样思考</figcaption>
+    </figure>
+    <div class="gallery-text column large-7 small-12">
+      <p>组织学生玩藏东西的游戏，让学生们将一件物品藏起来，然后录制一段他们自己按特定顺序 (序列) 指示具体方向 (命令) 的视频，帮助另一位学生找到该物品。这种动手实践活动将让全班同学明白电脑到底是怎样接受指令的。</p>
+    </div>
+  </div>
+  <div id="swift-gallery-algorithms" data-ac-gallery-item class="column large-12 gallery-slide">
+    <figure class="gallery-image column large-4 small-12" aria-hidden="true">
+      <figcaption class="visuallyhidden">算法</figcaption>
+    </figure>
+    <div class="gallery-text column large-7 small-12">
+      <p>在“谁是最高的人”游戏中，学生们将学习如何创建算法来找出班里最高的同学。这个活动将教学生们如何制订分步规则去完成一个目标，就像代码告诉电脑做什么一样。</p>
+    </div>
+  </div>
+  <div id="swift-gallery-logical-thinking" data-ac-gallery-item class="column large-12 gallery-slide">
+    <figure class="gallery-image column large-4 small-12" aria-hidden="true">
+      <figcaption class="visuallyhidden">逻辑思考</figcaption>
+    </figure>
+    <div class="gallery-text column large-7 small-12">
+      <p>学生们拍下教室里各种物品的照片，并围绕一个条件，比如某个形状或颜色，将照片拼贴在一起。然后，他们将拼贴照片展示给其他小组，让这些小组猜测拼贴所围绕的条件是什么。这让他们有机会去审视自己创建的条件是否清楚，而清楚的条件是编写高效代码必不可少的一部分。</p>
+    </div>
+  </div>
+  <div id="swift-gallery-creating-worlds" data-ac-gallery-item class="column large-12 gallery-slide">
+    <figure class="gallery-image column large-4 small-12" aria-hidden="true">
+      <figcaption class="visuallyhidden">创造新的世界</figcaption>
+    </figure>
+    <div class="gallery-text column large-7 small-12">
+      <p>学生们可以使用迄今为止所学的 Swift 代码，在 Swift Playgrounds 中创造自己的世界和谜题。他们将通过更改宝石、据点和人物来练习根据自己的想法构建他们的世界，并使用数组跟踪这些元素。然后，他们可以与朋友分享他们完成的作品。</p>
+    </div>
+  </div>
+</div>
+</div>
+
+<!--div class="tout column large-4 large-offset-2 small-12 small-offset-0">
+  <p class="typography-label">学习编程 3</p>
+  <p class="typography-subbody large-11 medium-12">在<i>《学习编程 3》</i>中，你的学生将拓展他们的编程技能，开始更像 app 开发者那样去思考。他们将探索专业开发者使用的强大编程概念，并运用这些概念打造一系列创意工具。另外，他们还将学习如何放置和操纵图像来创造新的世界。</p>
+  <a class="block download-link medium-extend-13 swift-lessons-download-link-code-3" href="https://itunes.apple.com/book/id1173709121?v0=www-us-education-everyone-can-code-book-ltc3-teacher-guide">
+    <figure class="download-icon"></figure>
+    <p class="download-cta block-link icon typography-subbody">下载<span class="visuallyhidden">《学习编程 3》</span>的教师指南<span class="icon icon-after icon-external" aria-hidden="true"></span></p>
+  </a>
+</div-->
+</div>
+</div>
+</section>
+<!-- END: Swift Lessons -->

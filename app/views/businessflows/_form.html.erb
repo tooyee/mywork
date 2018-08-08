@@ -1,0 +1,40 @@
+<%= form_with(model: businessflow, local: true) do |form| %>
+  <% if businessflow.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(businessflow.errors.count, "error") %> prohibited this businessflow from being saved:</h2>
+
+      <ul>
+      <% businessflow.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+
+
+  <div class="field">
+    <%= form.label :businessunit_id,"businessunit name" %>
+    <%= form.select :businessunit_id,
+  Businessunit.all.collect {|p| [ p.name, p.id ] } %>
+  </div>
+
+  <div class="field">
+    <%= form.label :code %>
+    <%= form.text_field :code, id: :businessflow_code %>
+  </div>
+
+  <div class="field">
+    <%= form.label :name %>
+    <%= form.text_field :name, id: :businessflow_name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :remarks %>
+    <%= form.text_area :remarks, id: :businessflow_remarks %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

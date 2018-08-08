@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  activeflow: one
+  resource: one
+  status: 1
+  remarks: MyText
+
+two:
+  activeflow: two
+  resource: two
+  status: 1
+  remarks: MyText

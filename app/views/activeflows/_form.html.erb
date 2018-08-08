@@ -1,0 +1,93 @@
+<%= form_with(model: activeflow, local: true) do |form| %>
+  <% if activeflow.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(activeflow.errors.count, "error") %> prohibited this activeflow from being saved:</h2>
+
+      <ul>
+      <% activeflow.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+
+  <div class="field">
+    <%= form.label :transactionflow_id,"transactionflow name" %>
+    <%= form.select :transactionflow_id,
+  Transactionflow.all.collect {|p| [ p.transactionunit.name, p.id ] } %>
+  </div>
+
+  <div class="field">
+    <%= form.label :activeunit_id,"Activeunit name" %>
+    <%= form.select :activeunit_id,
+  Activeunit.all.collect {|p| [ p.name, p.id ] } %>
+  </div>
+
+  <div class="field">
+    <%= form.label :accouttype %>
+    <%= form.select :accouttype, Activeflow.accouttypes.keys %>
+  </div>
+
+  <div class="field">
+    <%= form.label :floworderid %>
+    <%= form.number_field :floworderid, id: :transactionflow_floworderid %>
+  </div>
+
+  <div class="field">
+    <%= form.label :flowtype %>
+    <%= form.select :flowtype, Activeflow.flowtypes.keys %>
+  </div>
+
+  <div class="field">
+    <%= form.label :vouchertemplatetype %>
+    <%= form.select :vouchertemplatetype, Activeflow.vouchertemplatetypes.keys %>
+  </div>
+
+  <div class="field">
+    <%= form.label :contenttype %>
+    <%= form.select :contenttype, Activeflow.contenttypes.keys %>
+  </div>
+
+  <div class="field">
+    <%= form.label :resourcestype %>
+    <%= form.select :resourcestype, Activeflow.resourcestypes.keys %>
+  </div>
+
+  <div class="field">
+    <%= form.label :subtransactiontype %>
+    <%= form.select :subtransactiontype, Activeflow.subtransactiontypes.keys %>
+  </div>
+
+  <div class="field">
+    <%= form.label :stockaccounttype %>
+    <%= form.select :stockaccounttype, Activeflow.stockaccounttypes.keys %>
+  </div>
+
+  <div class="field">
+    <%= form.label :copyresourcestype %>
+    <%= form.select :copyresourcestype, Activeflow.copyresourcestypes.keys %>
+  </div>
+
+
+
+
+  <div class="field">
+    <%= form.label :beforeactiveunit_id %>
+    <%= form.number_field :beforeactiveunit_id, id: :activeflow_beforeactiveunit_id %>
+  </div>
+  <div class="field">
+    <%= form.label :beforeactiveunit_id,"before activeunit name" %>
+    <%= form.select :beforeactiveunit_id,
+    Activeflow.where(transactionflow_id: activeflow.transactionflow_id).all.collect {|p| [ p.activeunit.name, p.id ] } %>
+  </div>
+  <div class="field">
+    <%= form.label :afteractiveunit_id,"after activeunit name" %>
+    <%= form.select :afteractiveunit_id,
+    Activeflow.where(transactionflow_id: activeflow.transactionflow_id).all.collect {|p| [ p.activeunit.name, p.id ] } %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

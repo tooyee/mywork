@@ -1,0 +1,46 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Resourceslines</h1>
+
+<table  class="table table-striped">
+  <thead class="thead-dark">
+    <tr>
+      <th>Id</th>
+      <th>Active</th>
+      <th>Business</th>
+      <th>Resource</th>
+      <th>Quantity</th>
+      <th>Price</th>
+      <th>Cost</th>
+      <th>Vatgroup</th>
+      <th>Whscode</th>
+      <th>Status</th>
+      <!-- <th colspan="3"></th> -->
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @resourceslines.each do |resourcesline| %>
+      <tr>
+        <td><%= link_to resourcesline.id, resourcesline  %></td>
+        <td><%= resourcesline.active.activeflow.activeunit.name %></td>
+        <td><%= resourcesline.business.name %></td>
+        <td><%= resourcesline.resource.name %></td>
+        <td><%= resourcesline.quantity %></td>
+        <td><%= resourcesline.price %></td>
+        <td><%= resourcesline.cost %></td>
+        <td><%= resourcesline.vatgroup %></td>
+        <td><%= resourcesline.whscode %></td>
+        <td><%= resourcesline.status %></td>
+        <td><%= resourcesline.openqty %></td>
+        <td><%= link_to 'S', resourcesline %></td>
+        <td><%= link_to 'E', edit_resourcesline_path(resourcesline) %></td>
+        <td><%= link_to 'D', resourcesline, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Resourcesline', new_resourcesline_path %>

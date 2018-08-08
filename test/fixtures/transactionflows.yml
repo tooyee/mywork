@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  businessunit: one
+  transactionunit: one
+  transactiontype: 1
+  floworderid: 1
+  flowtype: 1
+
+two:
+  businessunit: two
+  transactionunit: two
+  transactiontype: 1
+  floworderid: 1
+  flowtype: 1

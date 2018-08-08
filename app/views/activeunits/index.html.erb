@@ -1,0 +1,33 @@
+<p id="notice"><%= notice %></p>
+
+<h5>活动组件</h5>
+
+<table class="table table-striped">
+  <thead class="thead-dark">
+    <tr>
+
+      <th>Code</th>
+      <th>Id</th>
+      <th>Name</th>
+
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @activeunits.each do |activeunit| %>
+      <tr>
+        <td><%= link_to activeunit.code, activeunit %></td>
+        <td><%= activeunit.id %></td>
+        <td><%= activeunit.name %></td>
+
+        <!-- <td><%= link_to 'Show', activeunit %></td>
+        <td><%= link_to 'Edit', edit_activeunit_path(activeunit) %></td>
+        <td><%= link_to 'Destroy', activeunit, method: :delete, data: { confirm: 'Are you sure?' } %></td> -->
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Activeunit', new_activeunit_path %>

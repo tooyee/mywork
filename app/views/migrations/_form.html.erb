@@ -1,0 +1,27 @@
+<%= form_with(model: migration, local: true) do |form| %>
+  <% if migration.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(migration.errors.count, "error") %> prohibited this migration from being saved:</h2>
+
+      <ul>
+      <% migration.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :add_afteractiveunitid_to_activeflow %>
+    <%= form.text_field :add_afteractiveunitid_to_activeflow, id: :migration_add_afteractiveunitid_to_activeflow %>
+  </div>
+
+  <div class="field">
+    <%= form.label :afteractiveunit_id %>
+    <%= form.number_field :afteractiveunit_id, id: :migration_afteractiveunit_id %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

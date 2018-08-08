@@ -1,0 +1,82 @@
+<%= form_for([@active, @active.resourceslines.build]) do |form| %>
+
+<div type="hidden"  class="card-block">
+  <h6 class="card-title">行明细</h6>
+  <div class="d-flex flex-column flex-sm-row-2">
+    <div class="p-1 form-group row">
+      <div type="hidden" class="col-sm-4">
+        活动：<%= form.select :active_id,
+        Active.all.collect {|p| [ p.activeflow.activeunit.name, p.id ] } %>
+      </div>
+      <div class="col-sm-4 ">
+        项目：<%= form.select :business_id,
+        Business.all.collect {|p| [ p.name, p.id ] } %>
+      </div>
+      <div class="col-sm-4 ">
+        资源：<td class="rlcode"><%= form.select :resource_id,
+        Resource.all.collect {|p| [ p.name, p.id ] },
+                      prompt: "select a resource name" %>
+      </div>
+      <div class="col-sm-4 ">
+        数量：<td class="rlquan"><%= form.number_field :quantity, id: :resourcesline_quantity %></td>
+      </div>
+      <div class="col-sm-4 ">
+        价格：<td class="rlpric"><%= form.text_field :price, id: :resourcesline_price %></td>
+      </div>
+      <div class="col-sm-4 ">
+        成本：<td class="rlcost"><%= form.text_field :cost, id: :resourcesline_cost %></td>
+      </div>
+      <div class="col-sm-4 ">
+        税率：<td class="rlvatg"><%= form.select :vatgroup, Resourcesline.vatgroups.keys%></td>
+      </div>
+      <div class="col-sm-4 ">
+        仓库：<td class="rlwhsc"><%= form.number_field :whscode, id: :resourcesline_whscode %></td>
+      </div>
+      <div class="col-sm-4 ">
+        状态：<td class="rlstat"><%= form.select :status, Resourcesline.statuses.keys%></td>
+      </div>
+      <div class="col-sm-4 ">
+        <!-- <% form.submit %> -->
+        <button type="submit" class="btn btn-primary">新增行</button>
+      </div>
+
+    </div>
+  </div>
+  <!-- <table>
+    <tr>
+      <td class="rlid"><%= form.select :active_id,
+      Active.all.collect {|p| [ p.activeflow.activeunit.name, p.id ] } %></td>
+
+      <td class="rlid"><%= form.select :business_id,
+      Business.all.collect {|p| [ p.name, p.id ] } %></td>
+
+      <td class="rlcode"><%= form.select :resource_id,
+      Resource.all.collect {|p| [ p.name, p.id ] },
+                    prompt: "select a resource name" %></td>
+
+
+      <td><%= form.submit %></td>
+    </tr>
+    <tr>
+      <td class="rlquan"><%= form.number_field :quantity, id: :resourcesline_quantity %></td>
+
+      <td class="rlpric"><%= form.text_field :price, id: :resourcesline_price %></td>
+
+      <td class="rlcost"><%= form.text_field :cost, id: :resourcesline_cost %></td>
+
+      <td class="rlvatg"><%= form.select :vatgroup, Resourcesline.vatgroups.keys%></td>
+
+      <td class="rlwhsc"><%= form.number_field :whscode, id: :resourcesline_whscode %></td>
+
+      <td class="rlstat"><%= form.select :status, Resourcesline.statuses.keys%></td>
+    </tr>
+  </table> -->
+
+
+</div>
+
+
+
+
+
+<% end %>

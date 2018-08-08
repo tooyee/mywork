@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Code:</strong>
+  <%= @businessunit.code %>
+</p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @businessunit.name %>
+</p>
+
+<%= link_to 'Edit', edit_businessunit_path(@businessunit) %> |
+<%= link_to 'Back', businessunits_path %>

@@ -1,0 +1,168 @@
+// body {
+//   background-color: #fff;
+//   color: #333;
+//   margin: 33px;
+//   font-family: verdana, arial, helvetica, sans-serif;
+//   font-size: 13px;
+//   line-height: 18px;
+//   max-width: 1024px;
+//   max-height: 768px;
+//   align-content:  center;
+// }
+//
+// p, ol, ul, td {
+//   font-family: verdana, arial, helvetica, sans-serif;
+//   font-size: 13px;
+//   line-height: 18px;
+// }
+//
+// pre {
+//   background-color: #eee;
+//   padding: 10px;
+//   font-size: 11px;
+// }
+//
+// a {
+//   color: #000;
+//
+//   &:visited {
+//     color: #666;
+//   }
+//
+//   &:hover {
+//     color: #fff;
+//     background-color: #000;
+//   }
+// }
+//
+// th {
+//   padding-bottom: 5px;
+//   padding: 3px 5px 3px;
+//   background: #9c9;
+//   text-align: center;
+// }
+//
+// td {
+//   padding: 0 5px 7px;
+// }
+//
+// div {
+//   &.field, &.actions {
+//     margin-bottom: 10px;
+//   }
+// }
+//
+// #notice {
+//   color: green;
+// }
+//
+// .field_with_errors {
+//   padding: 2px;
+//   background-color: red;
+//   display: table;
+// }
+//
+// #error_explanation {
+//   width: 450px;
+//   border: 2px solid red;
+//   padding: 7px 7px 0;
+//   margin-bottom: 20px;
+//   background-color: #f0f0f0;
+//
+//   h2 {
+//     text-align: left;
+//     font-weight: bold;
+//     padding: 5px 5px 5px 15px;
+//     font-size: 12px;
+//     margin: -7px -7px 0;
+//     background-color: #c00;
+//     color: #fff;
+//   }
+//
+//   ul li {
+//     font-size: 12px;
+//     list-style: square;
+//   }
+// }
+//
+// label {
+//   display: block;
+// }
+//
+//
+// //
+// .active_form {
+//   fieldset {
+//     background: #efe;
+//
+//     legend {
+//       color: #dfd;
+//       background: #141;
+//       font-family: sans-serif;
+//       padding: 0.3em 1em;
+//     }
+//
+//     div {
+//       margin-bottom: 0.3em;
+//     }
+//   }
+//
+//   form {
+//     label {
+//       width: 5em;
+//       float: left;
+//       text-align: right;
+//       padding-top: 0.2em;
+//       margin-right: 0.1em;
+//       display: block;
+//     }
+//
+//     select, textarea, input {
+//       margin-left: 0.5em;
+//     }
+//
+//     .submit {
+//       margin-left: 4em;
+//     }
+//
+//     br {
+//       display: none;
+//     }
+//   }
+// }
+//
+// .active {
+//   display: inline;
+// }
+// .transactionunit {
+//   display: inline;
+// }
+// .activeunit {
+//   display: inline;
+// }
+//
+// //
+// .rlid { width: 20px;}
+// .rlcode { width: 50px;}
+// .rlname { width: 150px;}
+// .rlquan { width: 50px; max-width: 50px; text-align: right;}
+// .rlpric { width: 60px; text-align: right;}
+// .rltotl { width: 80px; text-align: right;}
+// .rlvatg { width: 50px; text-align: right;}
+// .rlwhsc { width: 50px;}
+// .rlstat { width: 50px; }
+//
+//
+//
+//
+//
+// .left_miden   { width:  50px; background-color: #efe;}
+//
+// .left_lebel   { width:  80px; text-align: right; background-color: #efe;}
+// .left_conte   { width: 150px; text-align: left ; background-color: #efe;}
+//
+// .miden_lebel  { width:  80px; text-align: right; background-color: #efe;}
+// .miden_conte  { width: 150px; text-align: left ; background-color: #efe;}
+//
+// .right_lebel  { width:  50px; text-align: right; background-color: #efe;}
+// .rihgt_conte  { width: 150px; text-align: left ; background-color: #efe;}

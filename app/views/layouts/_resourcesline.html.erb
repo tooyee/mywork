@@ -1,0 +1,21 @@
+<table>
+  <tr>
+    <td class="rlid"><%= resourcesline.id %></td>
+    <td class="rlcode"><%= resourcesline.resource.code %></td>
+    <td class="rlname"><%= resourcesline.resource.name %></td>
+    <td class="rlquan"><%= resourcesline.quantity %></td>
+    <td class="rlpric"><%= resourcesline.price %></td>
+    <td class="rlpric"><%= resourcesline.total %></td>
+    <td class="rlcost"><%= resourcesline.cost %></td>
+    <td class="rlvatg"><%= resourcesline.vatgroup %></td>
+    <td class="rlwhsc"><%= resourcesline.whscode %></td>
+    <td class="rlstat"><%= resourcesline.status %></td>
+    <!-- <td><%= link_to 'Edit', resourcesline %></td> -->
+    <td><%= link_to 'Edit', edit_resourcesline_path  %></td>
+
+    <td><%= link_to 'Destroy', [resourcesline.active, resourcesline],
+    method: :delete, data: { confirm: 'Are you sure?' } %></td>
+
+  </tr>
+
+</table>

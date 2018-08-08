@@ -1,0 +1,9 @@
+bootbox1.alert("hello world!")
+rr
+var html = "<%= j(render('formajax', remote: true)) %>";
+// bootbox 弹窗插件 http://bootboxjs.com/
+
+bootbox.dialog({
+  title: "新增联系地址",
+  message: html
+});

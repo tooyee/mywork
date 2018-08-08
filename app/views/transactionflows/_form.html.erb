@@ -1,0 +1,51 @@
+<%= form_with(model: transactionflow, local: true) do |form| %>
+  <% if transactionflow.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(transactionflow.errors.count, "error") %> prohibited this transactionflow from being saved:</h2>
+
+      <ul>
+      <% transactionflow.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+
+
+  <div class="field">
+    <%= form.label :businessflow_id,"businessunit name" %>
+    <%= form.select :businessflow_id,
+  Businessflow.all.collect {|p| [ p.name, p.id ] } %>
+  </div>
+
+  <div class="field">
+    <%= form.label :transactionunit_id,"transactionunit name" %>
+    <%= form.select :transactionunit_id,
+  Transactionunit.all.collect {|p| [ p.name, p.id ] } %>
+  </div>
+
+
+
+  <div class="field">
+  <%= form.label :transactiontype, "transactiontype" %>
+  <%= form.select :transactiontype, Transactionflow.transactiontypes.keys,
+                prompt: "select a type" %>
+  </div>
+
+  <div class="field">
+    <%= form.label :floworderid %>
+    <%= form.number_field :floworderid, id: :transactionflow_floworderid %>
+  </div>
+
+
+  <div class="field">
+  <%= form.label :flowtype, "flowtype" %>
+  <%= form.select :flowtype, Transactionflow.flowtypes.keys,
+                prompt: "select a type" %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

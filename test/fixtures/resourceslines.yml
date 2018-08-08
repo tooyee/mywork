@@ -1,0 +1,23 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  active: one
+  business: one
+  resource: one
+  quantity: 1
+  price: 9.99
+  cost: 9.99
+  vatgroup: 1
+  whscode: 1
+  status: 1
+
+two:
+  active: two
+  business: two
+  resource: two
+  quantity: 1
+  price: 9.99
+  cost: 9.99
+  vatgroup: 1
+  whscode: 1
+  status: 1

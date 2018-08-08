@@ -1,0 +1,2 @@
+module ActiveflowsHelper
+end

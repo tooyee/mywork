@@ -1,0 +1,11 @@
+<div class="card-header bg-transparent border-first">
+  <h5>商务编辑</h5>
+</div>
+
+
+<%= render 'form', business: @business %>
+
+<div class="card-footer bg-transparent border-first">
+  <%= link_to '显示', @business %> |
+  <%= link_to '列表', businesses_path %>
+</div>

@@ -1,0 +1,72 @@
+<%= form_with(model: resourcesline, local: true) do |form| %>
+  <% if resourcesline.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(resourcesline.errors.count, "error") %> prohibited this resourcesline from being saved:</h2>
+
+      <ul>
+      <% resourcesline.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :active_id %>
+    <%= form.select :active_id,
+    Active.all.collect {|p| [ p.activeflow.activeunit.name, p.id ] } %>
+  </div>
+
+  <div class="field">
+    <%= form.label :business_id %>
+    <%= form.select :business_id,
+    Business.all.collect {|p| [ p.name, p.id ] } %>
+  </div>
+
+  <div class="field">
+    <%= form.label :resource_id %>
+    <%= form.select :resource_id,
+    Resource.all.collect {|p| [ p.name, p.id ] } %>
+  </div>
+
+  <div class="field">
+    <%= form.label :quantity %>
+    <%= form.number_field :quantity, id: :resourcesline_quantity %>
+  </div>
+
+  <div class="field">
+    <%= form.label :price %>
+    <%= form.text_field :price, id: :resourcesline_price %>
+  </div>
+
+  <div class="field">
+    <%= form.label :cost %>
+    <%= form.text_field :cost, id: :resourcesline_cost %>
+  </div>
+
+  <div class="field">
+    <%= form.label :vatgroup %>
+    <%= form.select :vatgroup, Resourcesline.vatgroups.keys,
+                  prompt: "select a type"%>
+  </div>
+
+  <div class="field">
+    <%= form.label :whscode %>
+    <%= form.number_field :whscode, id: :resourcesline_whscode %>
+  </div>
+
+  <div class="field">
+    <%= form.label :status %>
+    <%= form.select :status, Resourcesline.statuses.keys,
+                  prompt: "select a type"%>
+  </div>
+
+  <div class="field">
+    <%= form.label :openqty %>
+    <%= form.number_field :openqty, id: :resourcesline_openqty %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

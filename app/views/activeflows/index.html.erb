@@ -1,0 +1,57 @@
+<p id="notice"><%= notice %></p>
+
+<h5>活动流程</h5>
+
+<table class="table table-striped">
+  <thead class="thead-dark">
+    <tr>
+
+      <th>商务</th>
+      <th>交易</th>
+      <th>序</th>
+      <th>活动</th>
+      <th>账户</th>
+      <th>序</th>
+      <!-- <th>流程</th>
+      <th>凭证</th>
+      <th>内容</th>
+      <th>资源</th>
+      <th>子交易</th>
+      <th>库存</th>
+      <th>复制资源？</th> -->
+      <th>前</th>
+      <th>后</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @activeflows.order("transactionflow_id","floworderid").each do |activeflow| %>
+      <tr>
+
+        <td><%= activeflow.transactionflow.businessflow.name %></td>
+        <td><%= activeflow.transactionflow.transactionunit.name %></td>
+        <td><%= link_to activeflow.id, activeflow %></td>
+        <td><%= activeflow.activeunit.name %></td>
+        <td><%= activeflow.accouttype %></td>
+        <td><%= activeflow.floworderid %></td>
+        <!-- <td><%= activeflow.flowtype %></td>
+        <td><%= activeflow.vouchertemplatetype %></td>
+        <td><%= activeflow.contenttype %></td>
+        <td><%= activeflow.resourcestype %></td>
+        <td><%= activeflow.subtransactiontype %></td>
+        <td><%= activeflow.stockaccounttype %></td>
+        <td><%= activeflow.copyresourcestype %></td> -->
+        <td><%= activeflow.beforeactiveflow.activeunit.name %></td>
+        <td><%= activeflow.afteractiveflow.activeunit.name %></td>
+        <!-- <td><%= link_to 'Show', activeflow %></td>
+        <td><%= link_to 'Edit', edit_activeflow_path(activeflow) %></td> -->
+        <!-- <td><%= link_to 'Destroy', activeflow, method: :delete, data: { confirm: 'Are you sure?' } %></td> -->
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Activeflow', new_activeflow_path %>

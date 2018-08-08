@@ -1,0 +1,68 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Transactionflow:</strong>
+  <%= @activeflow.transactionflow.transactionunit.name %>
+</p>
+
+<p>
+  <strong>Activeunit:</strong>
+  <%= @activeflow.activeunit.name %>
+</p>
+
+<p>
+  <strong>Accouttype:</strong>
+  <%= @activeflow.accouttype %>
+</p>
+
+<p>
+  <strong>Floworderid:</strong>
+  <%= @activeflow.floworderid %>
+</p>
+
+<p>
+  <strong>Flowtype:</strong>
+  <%= @activeflow.flowtype %>
+</p>
+
+<p>
+  <strong>Vouchertemplatetype:</strong>
+  <%= @activeflow.vouchertemplatetype %>
+</p>
+
+<p>
+  <strong>Contenttype:</strong>
+  <%= @activeflow.contenttype %>
+</p>
+
+<p>
+  <strong>Resourcestype:</strong>
+  <%= @activeflow.resourcestype %>
+</p>
+
+<p>
+  <strong>Subtransactiontype:</strong>
+  <%= @activeflow.subtransactiontype %>
+</p>
+
+<p>
+  <strong>Stockaccounttype:</strong>
+  <%= @activeflow.stockaccounttype %>
+</p>
+
+<p>
+  <strong>Copyresourcestype:</strong>
+  <%= @activeflow.copyresourcestype %>
+</p>
+
+<p>
+  <strong>Beforeactiveunit:</strong>
+  <%= @activeflow.beforeactiveunit_id %>
+</p>
+<p>
+  <strong>Afteractiveunit:</strong>
+  <%= @activeflow.afteractiveunit_id %>
+</p>
+
+<%= link_to 'Edit', edit_activeflow_path(@activeflow) %> |
+<%= link_to 'Back', activeflows_path %>

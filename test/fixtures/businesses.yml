@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  code: MyString
+  name: MyString
+  businessflow: one
+  status: 1
+  remarks: MyText
+
+two:
+  code: MyString
+  name: MyString
+  businessflow: two
+  status: 1
+  remarks: MyText

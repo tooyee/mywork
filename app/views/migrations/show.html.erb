@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Add afteractiveunitid to activeflow:</strong>
+  <%= @migration.add_afteractiveunitid_to_activeflow %>
+</p>
+
+<p>
+  <strong>Afteractiveunit:</strong>
+  <%= @migration.afteractiveunit_id %>
+</p>
+
+<%= link_to 'Edit', edit_migration_path(@migration) %> |
+<%= link_to 'Back', migrations_path %>

@@ -1,0 +1,23 @@
+<table class="table">
+
+  <tr>
+    <td scope="row" class="rlid"><%= link_to resourcesline.id, edit_active_resourcesline_path(resourcesline.active, resourcesline)   %></td>
+    <td scope="row" class="rlcode"><%= resourcesline.resource.code %></td>
+    <td scope="row" class="rlname"><%= resourcesline.resource.name %></td>
+    <td scope="row" class="rlquan"><%= resourcesline.quantity %></td>
+
+    <td scope="row" class="rlpric"><%= sprintf("%0.02f",resourcesline.price) %></td>
+    <td scope="row" class="rltotl"><%= sprintf("%0.02f",resourcesline.price_total) %></td>
+    <td scope="row" class="rlpric"><%= sprintf("%0.02f",resourcesline.cost) %></td>
+    <td scope="row" class="rltotl"><%= sprintf("%0.02f",resourcesline.cost_total) %></td>
+    <td scope="row" class="rlvatg"><%= resourcesline.vatgroup %></td>
+    <td scope="row" class="rlwhsc"><%= resourcesline.whscode %></td>
+    <td scope="row" class="rlstat"><%= resourcesline.status %></td>
+    <td><%= link_to 'E', resourcesline %></td>
+    <!-- <td><%= link_to 'Edit', edit_active_resourcesline_path(resourcesline.active, resourcesline)  %></td> -->
+    <td><%= link_to 'D', [resourcesline.active, resourcesline],
+    method: :delete, data: { confirm: 'Are you sure?' } %></td>
+
+
+  </tr>
+</table>

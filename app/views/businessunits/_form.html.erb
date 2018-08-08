@@ -1,0 +1,27 @@
+<%= form_for(businessunit) do |form| %>
+  <% if businessunit.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(businessunit.errors.count, "error") %> prohibited this businessunit from being saved:</h2>
+
+      <ul>
+      <% businessunit.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :code %>
+    <%= form.text_field :code, id: :businessunit_code %>
+  </div>
+
+  <div class="field">
+    <%= form.label :name %>
+    <%= form.text_field :name, id: :businessunit_name %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

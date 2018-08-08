@@ -1,0 +1,36 @@
+<%= form_with(model: activeunit, local: true) do |form| %>
+  <% if activeunit.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(activeunit.errors.count, "error") %> prohibited this activeunit from being saved:</h2>
+
+      <ul>
+      <% activeunit.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+
+  <!-- <div class="field">
+    <%= form.label :transactionunit_id,"transactionunit name" %>
+    <%= form.select :transactionunit_id,
+  Transactionunit.all.collect {|p| [ p.name, p.id ] } %>
+  </div> -->
+
+  <div class="field">
+    <%= form.label :code %>
+    <%= form.text_field :code, id: :activeunit_code %>
+  </div>
+
+  <div class="field">
+    <%= form.label :name %>
+    <%= form.text_field :name, id: :activeunit_name %>
+  </div>
+
+
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

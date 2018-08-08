@@ -1,0 +1,18 @@
+<p id="notice"><%= notice %></p>
+
+
+
+<p>
+  <strong>Code:</strong>
+  <%= @activeunit.code %>
+</p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @activeunit.name %>
+</p>
+
+
+
+<%= link_to 'Edit', edit_activeunit_path(@activeunit) %> |
+<%= link_to 'Back', activeunits_path %>

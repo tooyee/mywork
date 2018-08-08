@@ -1,0 +1,12 @@
+<div class="card-header bg-transparent border-first">
+  <h5>活动编辑</h5>
+</div>
+
+<%= render 'form', active: @active %>
+<!-- 下面少一个“=” -->
+<!-- <% render @active.resourceslines %> -->
+<div class="card-footer bg-transparent border-first">
+  <%= render "resourceslines/table" %>
+  <%= link_to '显示', @active %> |
+  <%= link_to '列表', actives_path %>
+</div>

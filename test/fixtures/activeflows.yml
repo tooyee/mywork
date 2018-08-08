@@ -1,0 +1,29 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  transactionflow: one
+  activeunit: one
+  accouttype: 1
+  floworderid: 1
+  flowtype: 1
+  vouchertemplatetype: 1
+  contenttype: 1
+  resourcestype: 1
+  subtransactiontype: 1
+  stockaccounttype: 1
+  copyresourcestype: 1
+  beforeactiveunit_id: 1
+
+two:
+  transactionflow: two
+  activeunit: two
+  accouttype: 1
+  floworderid: 1
+  flowtype: 1
+  vouchertemplatetype: 1
+  contenttype: 1
+  resourcestype: 1
+  subtransactiontype: 1
+  stockaccounttype: 1
+  copyresourcestype: 1
+  beforeactiveunit_id: 1

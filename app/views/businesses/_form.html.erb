@@ -1,0 +1,103 @@
+<%= form_with(model: business, local: true) do |form| %>
+  <% if business.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(business.errors.count, "error") %> prohibited this business from being saved:</h2>
+
+      <ul>
+      <% business.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="card-header bg-transparent border-first">
+    <div class="card-block">
+      <h6 class="card-title"><%= @business.businessflow.name %>: <%= @business.id %></h6>
+
+
+      <div class="d-flex flex-column flex-sm-row-2">
+        <div class="p-1 form-group row">
+          <label for="business_code" class="col-sm-2 col-form-label">代码</label>
+          <div class="col-sm-9 ">
+            <!-- <input type="text" class="form-control" id="business_code"  placeholder=<%= form.text_field :code %> -->
+            <%= form.text_field :code %>
+          </div>
+        </div>
+        <div class="p-1 form-group row">
+          <label for="business_name" class="col-sm-2 col-form-label">名称</label>
+          <div class="col-sm-9">
+            <!-- <input type="text" class="form-control" id="business_name"  placeholder=<%= form.text_field :name %> -->
+            <%= form.text_field :name %>
+          </div>
+        </div>
+
+        <!-- <div class="form-group">
+         <label for="exampleFormControlSelect1">Example select</label>
+         <select class="form-control" id="exampleFormControlSelect1">
+           <option>1</option>
+           <option>2</option>
+           <option>3</option>
+           <option>4</option>
+           <option>5</option>
+         </select>
+        </div> -->
+
+        <!-- <div class="form-group">
+          <label for="businessflow_id" class="col-sm-2 col-form-label">Businessflow</label>
+          <select class="form-control" id="businessflow_id" name="business[businessflow_id]">
+           <% Businessflow.all.collect do |p| %>
+             <option value="<%= p.id %>"><%= p.name %></option>
+           <% end %>
+          </select>
+        </div> -->
+
+        <div class="p-1 form-group row">
+          <div class="col-sm-2">
+            <%= form.label :类型 %>
+          </div>
+          <div class="col-sm-9">
+            <%= form.select :businessflow_id, Businessflow.all.collect {|p| [ p.name, p.id ] } %>
+          </div>
+        </div>
+
+        <div class="p-1 form-group row">
+          <div class="col-sm-2"><%= form.label :状态 %></div>
+          <div class="col-sm-9">
+              <%= form.select :status, Business.statuses.keys, prompt: "select a type"%>
+          </div>
+        </div>
+
+        <!-- <div class="form-group row">
+          <div class="col-sm-2"><%= form.label :日期 %></div>
+          <div class="col-sm-9">
+              <%= form.date_select :created_at %>
+          </div>
+        </div> -->
+
+        <div class="p-1 form-group row">
+          <label for="business_remarks" class="col-sm-2 col-form-label">备注</label>
+          <div class="col-sm-9">
+            <!-- <input type="text" class="form-control" id="business_remarks"  placeholder=<%= form.text_field :remarks %> -->
+            <%= form.text_field :remarks %>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+
+  <div class="card-footer bg-transparent border-first">
+    <button type="submit" class="btn btn-primary">更新</button>
+  </div>
+
+
+
+<!--
+  <div class="actions">
+    <button type="submit" class="btn btn-primary">更新</button>
+  </div> -->
+
+
+<% end %>

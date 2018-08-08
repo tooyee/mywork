@@ -1,0 +1,149 @@
+<div class="card bg-info mb-3">
+  <div class="card-header bg-transparent border-first">
+    <div class="card-block">
+
+      <% @active.businesses.select("DISTINCT businesses.id,businesses.name,businessflow_id").each do |businesses| %>
+      <p><span class="badge badge-light">项目</span>
+        <button type="button" class="btn btn-info btn-sm">
+         <span class="badge badge-light"><%= link_to businesses.name,business_path(businesses.id) %></span>
+        </button>
+      </p>
+
+
+         <h5 class="badge badge-info">
+
+           <% businesses.businessflow.transactionflows.each do |transactionflows| %>
+             <td><%= transactionflows.transactionunit.name %>:</td>
+             <% transactionflows.activeflows.order("floworderid").each do |activeflows| %>
+               <td  class="text-info ">
+                 <% if activeflows.activeunit.name == @active.activeflow.activeunit.name %>
+                  <button type="button" class="btn btn-light btn-sm">
+                    <span>qq:<%= activeflows.activeunit.name %>--></span>
+                   </button>
+
+
+                <% else %>
+                  <%= activeflows.activeunit.name %>-->
+                 <% end %>
+
+              </td>
+             <% end %>
+          <% end %>
+
+        </h5>
+      <% end %>
+
+
+
+
+    </div>
+  </div>
+
+  <div class="card-body text-first border-first">
+    <div class="card-footer bg-transparent border-first">
+      <div class="p-1">备注：<%= @active.remarks %><br></div>
+      <%= link_to '编辑', edit_active_path(@active) %> |
+      <%= link_to '列表', actives_path %> |
+      <!-- <%= link_to '复制从', edit_active_path(@active) %> | -->
+       <% if @active.sum_openqty_total > 0 %>
+
+      <%= link_to '下一步', clone_active_path(@active) %>:<%= @active.activeflow.afteractiveflow.activeunit.name %>
+      <!-- <%= link_to '复制从', copyform_active_path(@active) %> -->
+      <% else %>
+      <%= '' %>-->
+      <% end %>
+
+    </div>
+    <!-- active -->
+    <div class="card bg-light mb-3">
+      <p id="notice"><%= notice %></p>
+      <div class="card-header bg-transparent border-first">
+        <div class="card-block">
+
+          <h5 class="card-title"><%= @active.activeflow.activeunit.name %>: <%= @active.id %></h5>
+
+          <div class="p-1 form-group row">
+            <div class="col-sm-4"><%= @active.resource.code %>：<%= @active.resource.name %></div>
+            <div class="col-sm-4">销售部：张峰</div>
+            <div class="col-sm-4">状态：<%= @active.status %></div>
+            <div class="col-sm-4">日期：<%= @active.created_at.to_s(:mdy) %></div>
+
+            <div class="col-sm-4 d-none d-sm-block">桌面显示</div>
+          </div>
+
+
+
+        </div>
+      </div>
+      <div class="card-body text-first border-first">
+        <table class="table table-sm table-striped">
+         <thead class="thead-dark">
+          <tr>
+            <!-- <th scope="col"><div class="d-inline p-1">序</div></th> -->
+            <th scope="col"><div class="d-inline ">代码</div></th>
+            <th scope="col"><div class="d-inline ">资源</div></th>
+            <th scope="col"><div class="d-inline ">数量</div></th>
+            <th scope="col"><div class="d-inline">价格</div></th>
+            <th scope="col"><div class="d-inline ">合计</div></th>
+            <th scope="col"><div class="p-0 d-none d-sm-inline ">成本价</div></th>
+            <th scope="col"><div class="p-0 d-none d-sm-inline ">成本合计</div></th>
+            <th scope="col"><div class="d-none d-sm-inline ">税率</div></th>
+            <th scope="col"><div class="d-none d-sm-inline ">仓库</div></th>
+            <th scope="col"><div class="d-none d-sm-inline ">状态</div></th>
+          </tr>
+         </thead>
+         <tbody>
+          <% @active.resourceslines.each do |resourcesline| %>
+           <tr>
+             <!-- <th scope="row">
+               <div class="d-inline">
+                 <%= link_to resourcesline.id, edit_active_resourcesline_path(resourcesline.active, resourcesline) %>
+               </div>
+             </th> -->
+             <td>
+               <div class="d-inline">
+                 <%= link_to resourcesline.resource.code, edit_active_resourcesline_path(resourcesline.active, resourcesline)  %>
+               </div>
+             </td>
+             <td><div class="d-inline"><%= resourcesline.resource.name %></div></td>
+             <td><div class="d-inline"><p class="text-right"><%= resourcesline.quantity %></p></div></td>
+             <td><div class="d-inline"><p class="text-right"><%= sprintf("%0.02f",resourcesline.price) %></p></div></td>
+             <td><div class="d-inline"><p class="text-right"><%= sprintf("%0.02f",resourcesline.price_total) %></p></div></td>
+
+             <td><div class="d-none d-sm-inline"><p class="text-right"><%= sprintf("%0.02f",resourcesline.cost) %></p></div></td>
+             <td><div class="d-none d-sm-inline"><p class="text-right"><%= sprintf("%0.02f",resourcesline.cost_total) %></p></div></td>
+             <td><div class="d-none d-sm-inline"><p class="text-right"><%= resourcesline.vatgroup %></p></div></td>
+             <td><div class="d-none d-sm-inline"><p class="text-right"><%= resourcesline.whscode %></p></div></td>
+             <td><div class="d-none d-sm-inline"><p class="text-right"><%= resourcesline.status %></p></div></td>
+
+
+             <!-- <td><%= link_to 'E', resourcesline %></td> -->
+             <!-- <td><%= link_to 'Edit', edit_active_resourcesline_path(resourcesline.active, resourcesline)  %></td> -->
+             <!-- <td><%= link_to 'D', [resourcesline.active, resourcesline],
+             method: :delete, data: { confirm: 'Are you sure?' } %></td> -->
+           </tr>
+          <% end %>
+         </tbody>
+         <tfoot>
+          <tr >
+           <!-- <th scope="col"><div class="d-inline"></div></th> -->
+           <th scope="col"><div class="d-inline">总计</div></th>
+           <th scope="col"><div class="d-inline"></div></th>
+           <th scope="col"><div class="d-inline"><p class="text-right"><%=  @active.sum_quan_total %></p></div></th>
+           <th scope="col"><div class="d-inline"><p class="text-right"></p></div></th>
+           <th scope="col"><div class="d-inline"><p class="text-right"><%=  sprintf("%0.02f", @active.sum_price_total) %></p></div></th>
+           <th scope="col"><div class="d-none d-sm-inline"></div></th>
+           <th scope="col"><div class="d-none d-sm-inline"><p class="text-right"><%=  sprintf("%0.02f", @active.sum_cost_total) %></p></div></th>
+           <th scope="col"><div class="d-none d-sm-inline"></div></th>
+           <th scope="col"><div class="d-none d-sm-inline"></div></th>
+           <th scope="col"><div class="d-none d-sm-inline"></div></th>
+
+
+          </tr>
+         </tfoot>
+        </table>
+      </div>
+
+    </div>
+  </div>
+</div>

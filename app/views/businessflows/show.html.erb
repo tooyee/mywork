@@ -1,0 +1,26 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Businessunit:</strong>
+  <%= @businessflow.businessunit %>
+</p>
+
+<p>
+  <strong>Code:</strong>
+  <%= @businessflow.code %>
+</p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @businessflow.name %>
+</p>
+
+<p>
+  <strong>Remarks:</strong>
+  <%= @businessflow.remarks %>
+</p>
+
+
+
+<%= link_to 'Edit', edit_businessflow_path(@businessflow) %> |
+<%= link_to 'Back', businessflows_path %>

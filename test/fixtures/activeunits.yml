@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  transactionunit: one
+  code: MyString
+  name: MyString
+  accounttype: 1
+
+two:
+  transactionunit: two
+  code: MyString
+  name: MyString
+  accounttype: 1

@@ -1,0 +1,35 @@
+<p id="notice"><%= notice %></p>
+
+<h5>交易组件</h5>
+
+<table  class="table table-striped">
+  <thead class="thead-dark">
+    <tr>
+
+      <th>Code</th>
+      <th>Name</th>
+      <!-- <th>Transactiontype</th> -->
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @transactionunits.each do |transactionunit| %>
+      <tr>
+
+        <!-- <td><%= transactionunit.code %></td> -->
+        <td><%= link_to transactionunit.code, transactionunit %></td>
+        <td><%= transactionunit.name %></td>
+
+        <!-- <td><%= link_to 'Show', transactionunit %></td> -->
+        <!-- <td><%= link_to 'Edit', edit_transactionunit_path(transactionunit) %></td> -->
+        <!-- <td><%= link_to 'Destroy', transactionunit, method: :delete,
+        data: { confirm: 'Are you sure?' } %></td> -->
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Transactionunit', new_transactionunit_path %>

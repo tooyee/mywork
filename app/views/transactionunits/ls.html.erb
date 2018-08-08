@@ -1,0 +1,33 @@
+<div class="field">
+  <%= form.label :businessunit_id,"businessunit name" %>
+  <%= form.select :businessunit_id,
+Businessunit.all.collect {|p| [ p.name, p.id ] } %>
+</div>
+
+<div class="field">
+<%= form.label :transactiontype, "transactiontype" %>
+<%= form.select :transactiontype, Transactionunit.transactiontypes.keys,
+              prompt: "select a type" %>
+ </div>
+
+ <p>
+   <strong>Businessunit code:</strong>
+   <%= @transactionunit.businessunit.code %>
+ </p>
+ <p>
+   <strong>Businessunit name:</strong>
+   <%= @transactionunit.businessunit.name %>
+ </p>
+
+ <p>
+   <strong>Transactiontype:</strong>
+   <%= @transactionunit.transactiontype %>
+ </p>
+
+
+ <td><%= transactionunit.businessunit.code %></td>
+ <td><%= transactionunit.businessunit.name %></td>
+         <td><%= transactionunit.transactiontype %></td>
+         <th>Businessunit code</th>
+         <th>Businessunit name</th>
+               <th>Transactiontype</th>

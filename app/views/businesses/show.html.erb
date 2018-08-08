@@ -1,0 +1,92 @@
+<div class="card bg-light mb-3">
+
+  <p id="notice"><%= notice %></p>
+
+  <div class="card-header  border-first">
+    <div class="card-block">
+      <h5 class="card-title"><%= @business.businessflow.name %>: <%= @business.id %></h5>
+
+
+      <div class="p-1 form-group row">
+        <div class="col-sm-4">代码：<%= @business.code %></div>
+        <div class="col-sm-4">名称：<%= @business.name %></div>
+        <div class="col-sm-4">状态：<%= @business.status %></div>
+        <div class="col-sm-4">日期：<%= @business.created_at.to_s(:mdy) %></div>
+        <div class="col-sm-4">备注：<%= @business.remarks %></div>
+        <div class="col-sm-4 d-none d-sm-block">桌面显示</div>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="card-body text-first border-first">
+    <!-- 页签标题 -->
+    <ul id="mytab" class="nav nav-pills flex-sm-row">
+      <% @business.businessflow.transactionflows.each do |transactionflows| %>
+      <li  class="nav-item">
+        <a class="nav-link" href="#<%= transactionflows.transactionunit.name %>" data-toggle="tab"><%= transactionflows.transactionunit.name %></a>
+      </li>
+      <% end %>
+    </ul>
+    <p></p>
+    <div class="tab-content"> <!--1 商务下的交易集，定义交易控件名称，关联交易标题 -->
+       <% @business.businessflow.transactionflows.each do |transactionflows| %>
+         <% if transactionflows.floworderid == 1 %>
+         <div class="tab-pane active" id="<%= transactionflows.transactionunit.name %>"><!--2 每个交易下的活动集 -->   <!--3 每个活动标题下的实例活动 -->
+         <% else %>
+         <div class="tab-pane" id="<%= transactionflows.transactionunit.name %>">
+         <% end %><hr>
+         <table>
+           <tbody>
+             <tr >
+               <% transactionflows.activeflows.order("floworderid").each do |activeflows| %>
+                 <td  class="text-info align-self-start">
+                   <h6><%= activeflows.activeunit.name %></h6>
+                </td>
+               <% end %>
+             </tr>
+             <tr >
+               <% transactionflows.activeflows.order("floworderid").each do |activeflows| %>
+
+                 <td  class="text-info align-self-start">
+                  <% @business.actives.select("DISTINCT active_id as id,activeflow_id")
+                  .where(activeflow_id: activeflows.id).order("id").each do |actives| %>
+
+                  <% if actives.sum_openqty_total > 0 %>
+                   <button type="button" class="btn btn-success btn-sm">
+                    <%= activeflows.activeunit.name %>
+                    <span class="badge badge-light">
+                      <%=  link_to actives.id , actives %></span>
+                   </button><%= "->" %><p></p>
+                  <% else %>
+                   <button type="button" class="btn btn-danger btn-sm">
+                    <%= activeflows.activeunit.name %>
+                    <span class="badge badge-light">
+                      <%=  link_to actives.id , actives %></span>
+                   </button><%= "->" %><p></p>
+                  <% end %>
+
+
+
+
+
+                  <% end %>
+                </td>
+               <% end %>
+             </tr>
+
+           </tbody>
+         </table>
+
+         </div>
+       <% end %>
+     </div>
+
+  </div>
+
+  <div class="card-footer bg-transparent border-first">
+    <%= link_to '编辑', edit_business_path(@business) %> |
+    <%= link_to '列表', businesses_path %>
+  </div>
+
+</div>

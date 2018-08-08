@@ -1,0 +1,48 @@
+<p id="notice"><%= notice %></p>
+
+<h6>
+
+<%= form_tag("/resources/search", method: "get") do %>
+
+  <%= label_tag(:search_id, "资源") %>
+  <!-- <%= text_field_tag(:search_id1) %> -->
+  <%= select_tag :search_id, options_for_select(Resource.resourcetypes.keys) %>
+  <%= submit_tag("查询") %>
+
+  <!-- <%= link_to '搜索', search_resources_path %>
+  <%= link_to '类型', resources_path(:resourcetype_id => 2) %>
+  <%= link_to '类型', resources_path(:resourcetype_id => params[:search_id]) %> -->
+<% end %>
+
+</h6>
+
+
+<table  class="table table-striped">
+  <thead class="thead-dark">
+    <tr>
+      <th scope="col">编号</th>
+      <th scope="col">名称</th>
+      <th scope="col">类型</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @resources.each do |resource| %>
+
+      <tr>
+        <th scope="row"><%= link_to resource.code,resource %></th>
+        <td><%= resource.name %></td>
+        <td><%= resource.resourcetype %></td>
+        <!-- <td><%= link_to 'Show', resource %></td>
+        <td><%= link_to 'Edit', edit_resource_path(resource) %></td> -->
+        <td><%= link_to 'Destroy', resource, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Resource', new_resource_path %>

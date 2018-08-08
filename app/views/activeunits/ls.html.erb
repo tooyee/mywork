@@ -1,0 +1,31 @@
+<div class="field">
+<%= form.label :accounttype, "accounttype" %>
+<%= form.select :accounttype, Activeunit.accounttypes.keys,
+              prompt: "select a type" %>
+ </div>
+
+ <p>
+   <strong>Transactionunit code:</strong>
+   <%= @activeunit.transactionunit.code %>
+ </p>
+ <p>
+   <strong>Transactionunit name:</strong>
+   <%= @activeunit.transactionunit.name %>
+ </p>
+
+ <p>
+   <strong>Accounttype:</strong>
+   <%= @activeunit.accounttype %>
+ </p>
+
+ <td><%= activeunit.transactionunit.businessunit.code %></td>
+ <td><%= activeunit.transactionunit.businessunit.name %></td>
+ <td><%= activeunit.transactionunit.code %></td>
+ <td><%= activeunit.transactionunit.name %></td>
+     <td><%= activeunit.accounttype %></td>
+
+     <th>Transactionunit code</th>
+     <th>Transactionunit name</th>
+     <th>Transactionunit code</th>
+     <th>Transactionunit name</th>
+           <th>Accounttype</th>

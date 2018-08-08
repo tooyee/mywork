@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  businessunit: one
+  code: MyString
+  name: MyString
+  transactiontype: MyString
+
+two:
+  businessunit: two
+  code: MyString
+  name: MyString
+  transactiontype: MyString

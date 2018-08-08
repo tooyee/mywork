@@ -1,0 +1,9 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  add_afteractiveunitid_to_activeflow: MyString
+  afteractiveunit_id: 1
+
+two:
+  add_afteractiveunitid_to_activeflow: MyString
+  afteractiveunit_id: 1

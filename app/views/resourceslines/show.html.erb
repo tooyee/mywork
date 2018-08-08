@@ -1,0 +1,49 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Active:</strong>
+  <%= @resourcesline.active %>
+</p>
+
+<p>
+  <strong>Business:</strong>
+  <%= @resourcesline.business %>
+</p>
+
+<p>
+  <strong>Resource:</strong>
+  <%= @resourcesline.resource %>
+</p>
+
+<p>
+  <strong>Quantity:</strong>
+  <%= @resourcesline.quantity %>
+</p>
+
+<p>
+  <strong>Price:</strong>
+  <%= @resourcesline.price %>
+</p>
+
+<p>
+  <strong>Cost:</strong>
+  <%= @resourcesline.cost %>
+</p>
+
+<p>
+  <strong>Vatgroup:</strong>
+  <%= @resourcesline.vatgroup %>
+</p>
+
+<p>
+  <strong>Whscode:</strong>
+  <%= @resourcesline.whscode %>
+</p>
+
+<p>
+  <strong>Status:</strong>
+  <%= @resourcesline.status %>
+</p>
+
+<%= link_to 'Edit', edit_resourcesline_path(@resourcesline) %> |
+<%= link_to 'Back', resourceslines_path %>

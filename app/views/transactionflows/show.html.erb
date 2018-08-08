@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Businessunit:</strong>
+  <%= @transactionflow.businessflow.name %>
+</p>
+
+<p>
+  <strong>Transactionunit:</strong>
+  <%= @transactionflow.transactionunit.name %>
+</p>
+
+<p>
+  <strong>Transactiontype:</strong>
+  <%= @transactionflow.transactiontype %>
+</p>
+
+<p>
+  <strong>Floworderid:</strong>
+  <%= @transactionflow.floworderid %>
+</p>
+
+<p>
+  <strong>Flowtype:</strong>
+  <%= @transactionflow.flowtype %>
+</p>
+
+<%= link_to 'Edit', edit_transactionflow_path(@transactionflow) %> |
+<%= link_to 'Back', transactionflows_path %>
